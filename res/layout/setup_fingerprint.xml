@@ -19,7 +19,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@color/page_background">
 
     <include layout="@layout/header_condensed" />
 
@@ -46,7 +46,8 @@
                     android:paddingLeft="@dimen/content_margin_left"
                     android:layout_marginBottom="@dimen/summary_margin_bottom"
                     android:paddingRight="@dimen/location_text_margin_right"
-                    android:text="@string/fingerprint_setup_summary" />
+                    android:text="@string/fingerprint_setup_summary"
+		            android:textColor="#e4e7e9" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -59,7 +60,8 @@
                     android:gravity="center_vertical"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:text="@string/fingerprint_setup_backup_lock_method"/>
+                    android:text="@string/fingerprint_setup_backup_lock_method"
+		            android:textColor="#e4e7e9" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -72,7 +74,8 @@
                     android:gravity="center_vertical"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:text="@string/fingerprint_setup_add_fingerprint"/>
+                    android:text="@string/fingerprint_setup_add_fingerprint"
+		            android:textColor="#e4e7e9" />
 
                 <TextView
                     android:id="@+id/setup_fingerprint"
@@ -83,7 +86,7 @@
                     android:gravity="center_vertical"
                     android:textSize="16sp"
                     android:textAllCaps="true"
-                    android:textColor="@color/fingerprint_setup_text_color"
+                    android:textColor="#e4e7e9"
                     android:text="@string/fingerprint_setup_screen_lock_setup"/>
 
             </LinearLayout>

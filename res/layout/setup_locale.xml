@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/primary">
+    android:background="@color/page_background">
 
     <include layout="@layout/header" />
 
@@ -32,7 +32,8 @@
         android:paddingLeft="@dimen/content_margin_left"
         android:paddingRight="@dimen/content_margin_left"
         android:textSize="18sp"
-        android:text="@string/welcome_summary" 
+        android:text="@string/welcome_summary"
+	    android:textColor="#e4e7e9" 
         style="PageSummaryText"/>
 
     <RelativeLayout android:layout_width="match_parent"
