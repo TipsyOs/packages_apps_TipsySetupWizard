@@ -19,7 +19,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/primary">
+              android:background="@color/page_background">
 
 
     <include layout="@layout/header_condensed" />
@@ -49,6 +49,7 @@
                     android:paddingRight="@dimen/content_margin_right"
                     style="@style/PageSummaryText"
                     android:text="@string/services_explanation"
+		            android:textColor="#e4e7e9" 
                     android:clickable="true"/>
 
                 <LinearLayout
@@ -73,7 +74,8 @@
                         android:layout_marginRight="@dimen/location_text_margin_right"
                         android:paddingTop="@dimen/content_margin_bottom"
                         android:paddingBottom="@dimen/content_margin_bottom"
-                        android:text="@string/services_system_nav"/>
+                        android:text="@string/services_system_nav"
+			            android:textColor="#e4e7e9" />
 
                     <ImageView
                         android:id="@+id/system_nav_arrow"
@@ -107,7 +109,8 @@
                         android:layout_marginRight="@dimen/location_text_margin_right"
                         android:paddingTop="@dimen/content_margin_bottom"
                         android:paddingBottom="@dimen/content_margin_bottom"
-                        android:text="@string/services_customize_theme"/>
+                        android:text="@string/services_customize_theme"
+			            android:textColor="#e4e7e9" />
 
                     <ImageView
                         android:id="@+id/customize_theme_arrow"
@@ -149,7 +152,8 @@
                         android:layout_marginRight="@dimen/location_text_margin_right"
                         android:paddingTop="@dimen/content_margin_bottom"
                         android:paddingBottom="@dimen/content_margin_bottom"
-                        android:text="@string/services_dark_theme"/>
+                        android:text="@string/services_dark_theme"
+			            android:textColor="#e4e7e9" />
 
                 </LinearLayout>
 
@@ -222,7 +226,8 @@
                         android:layout_marginLeft="@dimen/location_text_margin_left"
                         android:layout_marginRight="@dimen/location_text_margin_right"
                         android:paddingBottom="@dimen/content_margin_bottom"
-                        android:text="@string/services_metrics_label"/>
+                        android:text="@string/services_metrics_label"
+			            android:textColor="#e4e7e9" />
 
                 </LinearLayout>
             </LinearLayout>
