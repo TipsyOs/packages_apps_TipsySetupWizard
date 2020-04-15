@@ -18,7 +18,6 @@
 package org.tipsy.setupwizard;
 
 import static org.tipsy.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
-import static org.tipsy.setupwizard.SetupWizardApp.KEY_SEND_METRICS;
 import static org.tipsy.setupwizard.SetupWizardApp.KEY_DARK_THEME;
 
 import android.app.Activity;
@@ -57,17 +56,10 @@ public class TipsySettingsActivity extends BaseSetupWizardActivity {
 
     private SetupWizardApp mSetupWizardApp;
 
-    private CheckBox mMetrics;
     private CheckBox mNavKeys;
     private CheckBox mDarkTheme;
 
     private boolean mSupportsKeyDisabler = false;
-
-    private View.OnClickListener mMetricsClickListener = view -> {
-        boolean checked = !mMetrics.isChecked();
-        mMetrics.setChecked(checked);
-        mSetupWizardApp.getSettingsBundle().putBoolean(KEY_SEND_METRICS, checked);
-    };
 
     private View.OnClickListener mNavKeysClickListener = view -> {
         boolean checked = !mNavKeys.isChecked();
@@ -113,25 +105,6 @@ public class TipsySettingsActivity extends BaseSetupWizardActivity {
                 }
             }
         };
-        ss.setSpan(clickableSpan,
-                policySummary.length() - privacy_policy.length() - 1,
-                policySummary.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        TextView privacyPolicy = (TextView) findViewById(R.id.privacy_policy);
-        privacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
-        privacyPolicy.setText(ss);
-
-        View metricsRow = findViewById(R.id.metrics);
-        metricsRow.setOnClickListener(mMetricsClickListener);
-        String metricsHelpImproveTipsy =
-                getString(R.string.services_help_improve_cm, getString(R.string.os_name));
-        String metricsSummary = getString(R.string.services_metrics_label,
-                metricsHelpImproveTipsy, getString(R.string.os_name));
-        final SpannableStringBuilder metricsSpan = new SpannableStringBuilder(metricsSummary);
-        metricsSpan.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
-                0, metricsHelpImproveTipsy.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        TextView metrics = (TextView) findViewById(R.id.enable_metrics_summary);
-        metrics.setText(metricsSpan);
-        mMetrics = (CheckBox) findViewById(R.id.enable_metrics_checkbox);
 
         View systemNavRow = findViewById(R.id.system_nav);
         systemNavRow.setOnClickListener(mSystemNavClickListener);
@@ -159,7 +132,6 @@ public class TipsySettingsActivity extends BaseSetupWizardActivity {
     public void onResume() {
         super.onResume();
         updateDisableNavkeysOption();
-        updateMetricsOption();
     }
 
     @Override
@@ -191,15 +163,6 @@ public class TipsySettingsActivity extends BaseSetupWizardActivity {
     @Override
     protected int getIconResId() {
         return R.drawable.ic_features;
-    }
-
-    private void updateMetricsOption() {
-        final Bundle myPageBundle = mSetupWizardApp.getSettingsBundle();
-        boolean metricsChecked =
-                !myPageBundle.containsKey(KEY_SEND_METRICS) || myPageBundle
-                        .getBoolean(KEY_SEND_METRICS);
-        mMetrics.setChecked(metricsChecked);
-        myPageBundle.putBoolean(KEY_SEND_METRICS, metricsChecked);
     }
 
     private void updateDisableNavkeysOption() {
